@@ -1,0 +1,109 @@
+.ProductBtn {
+    margin-top: 1rem;
+    margin-left: 0rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.ProductBtn button {
+    display: inline-flex;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.ProductBtn button:hover{
+    background: rgba(234, 207, 207, 0.7);
+}
+
+.featured h1 {
+    margin-bottom: 0.2rem;
+    font-size: 18px;
+}
+
+.product {
+    display: flex;
+}
+
+.product h1 {
+    font-size: 65px;
+}
+
+.divider {
+    margin-top: 3.5rem;
+    margin-left: 16.4rem;
+    color: black;
+    border: 1px solid;
+    width: 40%;
+}
+
+.products-grid {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4.2rem;
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 16px);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(1px 1px 20px rgb(90, 59, 59));
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+}
+
+/* .card-img{
+       filter: drop-shadow(1px 1px 20px rgb(90, 59, 59));
+} */
+
+.card img {
+    width: 90%;
+    height: 280px;
+    /* object-fit: cover; */
+ 
+}
+
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    margin-bottom: 0px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* .card-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+} */
+
+/* .card-link:hover {
+    background-color: #0056b3;
+} */

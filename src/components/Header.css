@@ -1,0 +1,46 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap"); */
+
+.header{
+    position: fixed;
+    z-index: 9;
+    margin-top: 1.2rem;
+    margin-left: 12.7rem;
+}
+
+.columnOne{
+    /* margin:2rem 15rem; */
+    margin-left: 2rem;
+    margin-bottom: 10rem;
+    display: flex;
+    font-size: 13px;
+    font-family:sans-serif;
+}
+
+.social{
+    display: flex;
+}
+
+.mail{
+    display: flex;
+    margin-left:2rem;
+}
+
+.mail a{
+    margin-left: 0.4rem;
+}
+
+.mailIcon{
+    margin-top: 0.3rem;
+}
+
+.social-media{
+    font-size: 14px;
+    margin-left: 5rem;
+    padding-left: 30rem;
+    display: flex;
+    margin-top: 0.2rem;
+}
+
+.facebook{
+    margin-right: 1rem;
+}
