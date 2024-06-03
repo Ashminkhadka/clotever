@@ -1,16 +1,17 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap"); */
 
 .header{
-    position: fixed;
-    z-index: 9;
+    /* position: fixed; */
+    z-index: 1;
     margin-top: 1.2rem;
     margin-left: 12.7rem;
+    z-index:10;
 }
 
 .columnOne{
     /* margin:2rem 15rem; */
     margin-left: 2rem;
-    margin-bottom: 10rem;
+    margin-bottom: 0cap;
     display: flex;
     font-size: 13px;
     font-family:sans-serif;
