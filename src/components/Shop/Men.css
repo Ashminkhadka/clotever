@@ -1,0 +1,22 @@
+.menContainer{
+    
+}
+
+.menProduct{
+    display: flex;
+}
+
+.menProduct h1{
+    padding-top: 12rem;
+    padding-left: 15rem;
+    font-size: 65px;
+}
+
+.menProduct hr{
+    margin-top: 15.5rem;
+    width: 30%;
+}
+
+.menLoad{
+    padding-left: 15rem;
+}

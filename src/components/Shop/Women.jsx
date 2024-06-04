@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../components/Products/Products";
+import './Women.css'
 
 const WomenProducts = () => {
   const [data, setData] = useState([]);
@@ -45,16 +46,13 @@ const WomenProducts = () => {
 
   return (
     <div>
-      <div className="container">
-        <div className="featured">
+      <div className="womContainer">
+        <div className="womProduct">
           <h1>Women's Clothing</h1>
-        </div>
-        <div className="product">
-          <h1>Products</h1>
           <hr className="divider" />
         </div>
       </div>
-      <div className="load">{<ShowProducts />}</div>
+      <div className="womLoad">{<ShowProducts />}</div>
     </div>
   );
 };

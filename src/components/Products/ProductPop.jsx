@@ -37,7 +37,7 @@
 
 //   return (
 //     <div>
-      
+
 //     </div>
 //   )
 // }
@@ -138,25 +138,74 @@
 
 // export default ProductPop;
 
-import React from 'react';
-// import './ProductPopup.css';
+// import React from 'react';
+// // import './ProductPopup.css';
 
-const ProductPop = ({ product, onClose, onAddToCart }) => {
+// const ProductPop = ({ product, onClose, onAddToCart }) => {
+//   if (!product) return null;
+
+//   return (
+//     <div className="product-popup">
+//       <div className="product-popup-content">
+//         <button className="close-button" onClick={onClose}>
+//           &times;
+//         </button>
+//         <h2>{product.title}</h2>
+//         <img src={product.image} alt={product.title} />
+//         <p>{product.description}</p>
+//         <p>Price: ${product.price}</p>
+//         <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProductPop;
+
+import React from "react";
+import Modal from "react-modal";
+import "./ProductPop.css";
+
+Modal.setAppElement("#root");
+
+const ProductPop = ({ product, isOpen, onClose }) => {
   if (!product) return null;
 
   return (
-    <div className="product-popup">
-      <div className="product-popup-content">
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
-        <h2>{product.title}</h2>
-        <img src={product.image} alt={product.title} />
-        <p>{product.description}</p>
-        <p>Price: ${product.price}</p>
-        <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Product Details"
+      className="product-popup"
+      overlayClassName="product-popup-overlay"
+    >
+      <div className="pop-content">
+        <div className="pop-btn">
+          <button className="close-button" onClick={onClose}>
+            &times;
+          </button>
+          <img src={product.image} alt={product.title} />
+          <h2>
+            {product.title}
+            <p>{product.description}</p>
+            <price className='price'>Price: ${product.price}</price>
+            <rating className='rating'> Rating: ${product.rating}</rating>
+            <div className="btns-pop">
+          <button className="buy-btn" onClick={() => handleOpenPopup(product)}>
+            Buy Now
+          </button>
+          <button
+            className="cart-btn"
+            // onClick={() => handleOpenPopup(product)}
+          >
+            Add to Cart
+          </button>
+        </div>
+          </h2>
+          
+        </div>
       </div>
-    </div>
+    </Modal>
   );
 };
 

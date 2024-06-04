@@ -5,6 +5,32 @@ h3{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
+.aboutDesc{
+    margin-left: 7rem;
+    padding-left: 6rem;
+}
+
+.aboutDesc h1{
+    padding-top: 1rem;
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.aboutDesc h2{
+    width: 40%;
+    /* font-family: light, sans-serif; */
+    font-weight: 100;
+}
+
+.aboutDesc img{
+    height: 400px;
+    width: 500px;
+}
+
+.descImg {
+    display: flex;
+}
+
 .aboutFooter{
     padding-top: 12rem;
     width: 100%;
@@ -18,12 +44,12 @@ h3{
 }
 
 .aboutHead hr{
-    width: 40%;
+    width: 35%;
 }
 
 .aboutDivider {
     margin-top: 14.2rem;
-    margin-left: 16.4rem;
+    margin-left: 19rem;
     color: black;
     border: 1px solid;
     width: 40%;

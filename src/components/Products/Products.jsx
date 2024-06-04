@@ -169,13 +169,12 @@
 //         </div>
 //       </div>
 //       <div className="load">{<ShowProducts />}</div>
-      
+
 //     </div>
 //   );
 // };
 
 // export default Products;
-
 
 // import React, { useEffect, useState } from "react";
 // import "./Products.css";
@@ -306,6 +305,7 @@ const Products = ({ category }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     let componentMounted = true;
@@ -316,7 +316,9 @@ const Products = ({ category }) => {
         const products = await response.json();
         // Filter out jewelery and electronics
         const filteredProducts = products.filter(
-          (product) => product.category !== "jewelery" && product.category !== "electronics"
+          (product) =>
+            product.category !== "jewelery" &&
+            product.category !== "electronics"
         );
         setData(filteredProducts);
         setFilter(filteredProducts);
@@ -355,24 +357,25 @@ const Products = ({ category }) => {
 
   const handleOpenPopup = (product) => {
     setSelectedProduct(product);
+    setIsModalOpen(true);
   };
 
   const handleClosePopup = () => {
     setSelectedProduct(null);
+    setIsModalOpen(false);
   };
-
-  // const handleAddToCart = (product) => {
-  //   console.log('Adding product to cart:', product);
-  //   // Implement your add to cart logic here
-  // };
 
   const ShowProducts = () => {
     return (
       <>
         <div className="ProductBtn">
           <button onClick={() => setFilter(data)}>All</button>
-          <button onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-          <button onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+          <button onClick={() => filterProduct("men's clothing")}>
+            Men's Clothing
+          </button>
+          <button onClick={() => filterProduct("women's clothing")}>
+            Women's Clothing
+          </button>
           <div className="sort-selection">
             <form action="#">
               <label htmlFor="sort"></label>
@@ -380,7 +383,8 @@ const Products = ({ category }) => {
                 name="sort"
                 id="sort"
                 className="sort-selection"
-                onChange={handleSortChange}>
+                onChange={handleSortChange}
+              >
                 <option value="">Sort by</option>
                 <option value="lowest">Price (lowest)</option>
                 <option value="highest">Price (highest)</option>
@@ -394,13 +398,25 @@ const Products = ({ category }) => {
           {filter.map((product) => {
             return (
               <div className="card" key={product.id}>
-                <img src={product.image} alt={product.title} />
+                <img src={product.image} alt={product.title} onClick={() => handleOpenPopup(product)}/>
                 <div className="card-body">
-                  <h5 className="card-title">{product.title.substring(0, 12)}</h5>
+                  <h5 className="card-title">
+                    {product.title.substring(0, 12)}
+                  </h5>
                   <p className="card-text">$ {product.price}</p>
-                  <button className="buy-btn" onClick={() => handleOpenPopup(product)}>
-                    Buy Now
-                  </button>
+                  <div className="btns">
+                    <button
+                      className="buy-btn"
+                    >
+                      Buy Now
+                    </button>
+                    <button
+                      className="cart-btn"
+                      // onClick={() => handleOpenPopup(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             );
@@ -417,18 +433,18 @@ const Products = ({ category }) => {
           <h1>Featured</h1>
         </div>
         <div className="product">
-          <h1>Products</h1>
+          <h1>Latest Products</h1>
           <hr className="divider" />
         </div>
       </div>
-      <div className="load">{<ShowProducts />}</div>
-      {selectedProduct && (
+      <div className="load">
+        <ShowProducts />
         <ProductPopup
           product={selectedProduct}
+          isOpen={isModalOpen}
           onClose={handleClosePopup}
-          // onAddToCart={handleAddToCart}
         />
-      )}
+      </div>
     </div>
   );
 };

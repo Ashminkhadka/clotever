@@ -45,3 +45,47 @@
 .facebook{
     margin-right: 1rem;
 }
+
+@media (max-width: 900px){
+    .header{
+        /* position: fixed; */
+        margin-top: 1.2rem;
+        margin-left: 4rem;
+        z-index:10;
+    }
+
+    .slogan{
+        font-size: 12px;
+        padding-right: 7rem;
+        width: 60%;
+    }
+
+    .social-media{
+        font-size: 14px;
+        margin-left: 7rem;
+        padding-left: 5rem;
+    }
+}
+
+@media (max-width: 500px){
+    .header{
+        /* position: fixed; */
+        margin-top: 1.2rem;
+        margin-left: 0rem;
+        z-index:10;
+    }
+
+    .slogan{
+        font-size: 12px;
+        padding-right: 1rem;
+        width: 60%;
+    }
+
+    .social-media{
+        font-size: 14px;
+        margin-left: 1rem;
+        padding-left: 0rem;
+        /* display: flex; */
+        /* margin-top: 2rem; */
+    }
+}

@@ -1,0 +1,143 @@
+.product-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0rem;
+}
+
+.product-popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  height: 500px;
+  width: 40%;
+  position: relative;
+}
+
+.product-popup-content {
+  /* text-align: center; */
+  /* display: flex; */
+}
+
+.pop-btn {
+  display: flex;
+}
+
+.pop-btn img {
+  width: 300px;
+  height: 90%;
+  padding-top: 0;
+}
+
+.pop-btn h2 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.pop-btn p {
+  padding-left: 2rem;
+  font-size: 12px;
+  text-align: left;
+}
+
+/* .product-price p {
+  font-size: 14px bold;
+  width: 40%;
+  text-align: right;
+  padding-left: 5rem;
+  margin-left: 15rem;
+
+} */
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btns-pop{
+  padding-top: 1rem;
+  padding-left: 0rem;
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+}
+
+@media (max-width: 900px){
+  .product-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5rem;
+    padding-top: 10rem;
+  }
+  
+  .product-popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 30%;
+    width: 60%;
+    position: relative;
+  }
+}
+
+@media (max-width: 500px){
+  .product-popup-overlay {
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5rem;
+    padding-top: 0rem;
+    padding-bottom: 30rem;
+  }
+  
+  .product-popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 40%;
+    width: 80%;
+    position: relative;
+  }
+
+  .pop-btn img {
+    width: 150px;
+    height: 40%;
+    padding-top: 0;
+  }
+  
+  .pop-btn h2 {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .pop-btn p {
+    padding-left: 2rem;
+    font-size: 10px;
+    text-align: left;
+  }
+}

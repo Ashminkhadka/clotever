@@ -1,0 +1,22 @@
+.womContainer{
+    
+}
+
+.womProduct{
+    display: flex;
+}
+
+.womProduct h1{
+    padding-top: 12rem;
+    padding-left: 15rem;
+    font-size: 65px;
+}
+
+.womProduct hr{
+    margin-top: 15.5rem;
+    width: 24%;
+}
+
+.womLoad{
+    padding-left: 15rem;
+}
