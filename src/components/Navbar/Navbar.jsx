@@ -131,6 +131,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { CgMenu, CgClose } from "react-icons/cg";
 import "./Navbar.css";
+import { useCart } from '../Bag/CartContext';
 
 const Navbar = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -138,6 +139,8 @@ const Navbar = () => {
   const [showSecondaryNavbar, setShowSecondaryNavbar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { cart } = useCart();
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
@@ -199,7 +202,9 @@ const Navbar = () => {
               Contact
             </NavLink>
             <div className="cart">
-              <NavLink to="/cart" activeClassName="active-link"><FaShoppingBag /></NavLink>
+              <NavLink to="/cart" activeClassName="active-link" ><FaShoppingBag />
+              {totalQuantity > 0 && <span className="cart-badge">{totalQuantity}</span>}
+              </NavLink>
             </div>
             <div className="account">
               <button className="myAccount">My Account <IoIosArrowForward /></button>
@@ -243,7 +248,9 @@ const Navbar = () => {
               Contact
             </NavLink>
             <div className="cart">
-              <NavLink to="/cart" activeClassName="active-link"><FaShoppingBag /></NavLink>
+              <NavLink to="/cart" activeClassName="active-link"><FaShoppingBag />
+              {totalQuantity > 0 && <span className="cart-badge">{totalQuantity}</span>}
+              </NavLink>
             </div>
             <div className="account">
               <button className="myAccount">My Account <IoIosArrowForward /></button>

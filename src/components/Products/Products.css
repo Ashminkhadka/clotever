@@ -122,6 +122,19 @@
     border-radius: 8px;
 }
 
+.cart-link button{
+    display: ruby;
+    padding: 3px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.cart-link button:hover{
+    background-color: beige;
+}
+
 /* Modal Styles */
 .modal {
     display: flex;

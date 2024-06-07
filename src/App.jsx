@@ -42,74 +42,88 @@ import MenProducts from "./components/Shop/Men";
 import WomenProducts from "./components/Shop/Women";
 import Blogs from "./components/Blogs/Blogs";
 import Contact from "./components/Contacts/Contact";
+import Cart from "./components/Bag/Cart";
+import { CartProvider } from "./components/Bag/CartContext";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <Navbar />
-              <ImageSlider />
-              <Home />
-            </>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <>
-              {/* <Header /> */}
-              <Navbar />
-              <About />
-            </>
-          }
-        />
-        <Route
-          path="/shop/men"
-          element={
-            <>
-              {/* <Header /> */}
-              <Navbar />
-              <MenProducts />
-            </>
-          }
-        />
-        <Route
-          path="/shop/women"
-          element={
-            <>
-              {/* <Header /> */}
-              <Navbar />
-              <WomenProducts />
-            </>
-          }
-        />
-        <Route
-          path="/blogs"
-          element={
-            <>
-              {/* <Header /> */}
-              <Navbar />
-              <Blogs />
-            </>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <>
-              {/* <Header /> */}
-              <Navbar />
-              <Contact />
-            </>
-          }
-        />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Navbar />
+                <ImageSlider />
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <About />
+              </>
+            }
+          />
+          <Route
+            path="/shop/men"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <MenProducts />
+              </>
+            }
+          />
+          <Route
+            path="/shop/women"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <WomenProducts />
+              </>
+            }
+          />
+          <Route
+            path="/blogs"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <Blogs />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <Contact />
+              </>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <>
+                {/* <Header /> */}
+                <Navbar />
+                <Cart />
+              </>
+            }
+          />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 };
 

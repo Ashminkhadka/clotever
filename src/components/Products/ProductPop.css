@@ -31,7 +31,7 @@
 
 .pop-btn img {
   width: 300px;
-  height: 90%;
+  height: 400px;
   padding-top: 0;
 }
 
@@ -46,14 +46,24 @@
   text-align: left;
 }
 
-/* .product-price p {
-  font-size: 14px bold;
-  width: 40%;
-  text-align: right;
-  padding-left: 5rem;
-  margin-left: 15rem;
+.pop-btn .rating{
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  padding-top: 0.5rem;
+}
 
-} */
+.pop-btn .price{
+  font-size: 34px;
+  font-weight: 600;
+  padding-right: 6rem;
+}
+
+.rating i{
+  padding-top: 0.2rem;
+  padding-left: 0.3rem;
+}
 
 .close-button {
   position: absolute;

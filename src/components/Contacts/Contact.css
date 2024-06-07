@@ -1,0 +1,141 @@
+#connect {
+    /* max-width: 600px;
+    margin: 0 auto;
+    padding: 20px; */
+    /* padding-top: 25rem; */
+    /* background-color: #f9f9f9; */
+    border-radius: 8px;
+    position: relative;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+
+  .headCont{
+    display: flex;
+  }
+
+  .headCont h3{
+    padding-top: 11rem;
+    padding-left: 13rem;
+    text-align:left;
+    font-size: 65px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+
+  .contDivider{
+    /* margin-right: 15rem; */
+    /* color: black; */
+    /* width: 40%; */
+
+}
+
+  .headCont hr{
+    padding-top: 0rem;
+    /* margin-top: 5rem; */
+    margin-left: 8.3rem;
+    border: 1px solid;
+    color: black;
+    margin-top: 14rem;
+    width: 33%;
+  }
+
+  .ques{
+    margin: 4rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 10rem;
+  }
+
+  .ques a {
+    padding-top: 0.5rem;
+    font-size: 14px;
+    font-weight: 700;
+    display: ruby;
+    justify-content: center;
+  }
+
+  .form{
+    background-color: #dbe3c3;
+    /* align-items: center; */
+    /* border: 2px solid; */
+    padding-top: 5rem;
+  }
+  
+  .form form {
+    margin-left: 35rem;
+    margin-bottom: 5rem;
+    align-content: center;
+    /* align-items: center; */
+    width: 500px;
+    height: 400px;
+    /* border: 1px solid; */
+    padding: 2rem;
+  }
+  
+  /* h6 {
+    margin: 5rem;
+    text-align: center;
+    font-size: 5rem;
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+  }
+   */
+   .form form div {
+    margin-bottom: 15px;
+  }
+  
+ .form label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    /* font-weight: bold; */
+  }
+  
+  .form input, textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit{
+    background-color: #2866a9;
+  }
+  .form button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formbutton:hover {
+    background-color: #62664b;
+  }
+  
+  .success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInOut 3s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

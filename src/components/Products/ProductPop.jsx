@@ -1,184 +1,17 @@
-// import React from 'react'
-// import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const ProductPop = () => {
-//     const {id} = useParams();
-//     const [product, setProduct] = useState([]);
-//     const [loading, setLoading] = useState(false);
-
-//     useEffect (() =>{
-//         const getProduct = async () => {
-//             setLoading(true);
-//             const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-//             setProduct(await response.json());
-//             setLoading(false);
-//         }
-//         getProduct();
-//     }, []);
-
-//     const Loading = () =>{
-//       return(
-//         <>
-//           Loading.....
-//         </>
-//       )
-//     }
-
-//     const ShowProduct= () =>{
-//       return(
-//         <>
-//           <div className='show-pop'>
-//             <img src={product.image} alt={product.title} height="400px" width="400px"/>
-//           </div>
-//         </>
-//       )
-//     }
-
-//   return (
-//     <div>
-
-//     </div>
-//   )
-// }
-
-// export default ProductPop
-
-// import React from "react";
-
-// const ProductPop = ({ product }) => {
-//   const {id} = useParams();
-//     const [product, setProduct] = useState([]);
-//     const [loading, setLoading] = useState(false);
-
-//     useEffect (() =>{
-//         const getProduct = async () => {
-//             setLoading(true);
-//             const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-//             setProduct(await response.json());
-//             setLoading(false);
-//         }
-//         getProduct();
-//     }, []);
-
-//     const Loading = () =>{
-//       return(
-//         <>
-//           Loading.....
-//         </>
-//       )
-//     }
-
-//     const ShowProduct= () =>{
-//       return(
-//         <>
-//           <div className='show-pop'>
-//             <img src={product.image} alt={product.title} height="400px" width="400px"/>
-//           </div>
-//         </>
-//       )
-//     }
-
-//   if (!product) return null;
-
-//   return (
-//     <div className="product-pop">
-//       <img src={product.image} alt={product.title} height="400px" width="400px" />
-//       <div className="product-details">
-//         <h2>{product.title}</h2>
-//         <p>{product.description}</p>
-//         <p>${product.price}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProductPop;
-
-// import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const ProductPop = () => {
-//     const { id } = useParams();
-//     const [product, setProduct] = useState(null);
-//     const [loading, setLoading] = useState(true);
-
-//     useEffect(() => {
-//         const getProduct = async () => {
-//             try {
-//                 const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-//                 if (!response.ok) {
-//                     throw new Error('Failed to fetch product');
-//                 }
-//                 const data = await response.json();
-//                 setProduct(data);
-//             } catch (error) {
-//                 console.error(error);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
-//         getProduct();
-//     }, [id]);
-
-//     if (loading) {
-//         return <div>Loading...</div>;
-//     }
-
-//     return (
-//         <div className='product-pop'>
-//             <h2>{product.title}</h2>
-//             <img src={product.image} alt={product.title} />
-//             <p>{product.description}</p>
-//             <p>Price: ${product.price}</p>
-//         </div>
-//     );
-// };
-
-// export default ProductPop;
-
-// import React from 'react';
-// // import './ProductPopup.css';
-
-// const ProductPop = ({ product, onClose, onAddToCart }) => {
-//   if (!product) return null;
-
-//   return (
-//     <div className="product-popup">
-//       <div className="product-popup-content">
-//         <button className="close-button" onClick={onClose}>
-//           &times;
-//         </button>
-//         <h2>{product.title}</h2>
-//         <img src={product.image} alt={product.title} />
-//         <p>{product.description}</p>
-//         <p>Price: ${product.price}</p>
-//         <button onClick={() => onAddToCart(product)}>Add to Cart</button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProductPop;
-
 import React from "react";
 import Modal from "react-modal";
 import "./ProductPop.css";
+import { FaStar } from "react-icons/fa";
 
 Modal.setAppElement("#root");
 
-const ProductPop = ({ product, isOpen, onClose }) => {
+const ProductPop = ({ product, isOpen, onClose, addToCart }) => {
+
   if (!product) return null;
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      contentLabel="Product Details"
-      className="product-popup"
-      overlayClassName="product-popup-overlay"
-    >
+    <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Product Details"
+      className="product-popup" overlayClassName="product-popup-overlay">
       <div className="pop-content">
         <div className="pop-btn">
           <button className="close-button" onClick={onClose}>
@@ -186,23 +19,30 @@ const ProductPop = ({ product, isOpen, onClose }) => {
           </button>
           <img src={product.image} alt={product.title} />
           <h2>
-            {product.title}
-            <p>{product.description}</p>
-            <price className='price'>Price: ${product.price}</price>
-            <rating className='rating'> Rating: ${product.rating}</rating>
+            {product.title.substring(0,70)}
+            <p>
+              {product.description.substring(0,150)}
+              <br />
+              <span className="rating">
+                Rating: {product.rating && product.rating.rate}
+                <i>
+                  <FaStar />
+                </i>
+              </span>
+            </p>
+            <span className="price">${product.price}</span>
             <div className="btns-pop">
-          <button className="buy-btn" onClick={() => handleOpenPopup(product)}>
-            Buy Now
-          </button>
-          <button
-            className="cart-btn"
-            // onClick={() => handleOpenPopup(product)}
-          >
-            Add to Cart
-          </button>
-        </div>
+              <button
+                className="buy-btn"
+                // onClick={() => handleOpenPopup(product)}
+              >
+                Buy Now
+              </button>
+              <button className="cart-btn" onClick={() => addToCart(product)}>
+                Add to Cart
+              </button>
+            </div>
           </h2>
-          
         </div>
       </div>
     </Modal>
@@ -210,3 +50,4 @@ const ProductPop = ({ product, isOpen, onClose }) => {
 };
 
 export default ProductPop;
+
