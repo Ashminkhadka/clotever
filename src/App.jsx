@@ -44,85 +44,93 @@ import Blogs from "./components/Blogs/Blogs";
 import Contact from "./components/Contacts/Contact";
 import Cart from "./components/Bag/Cart";
 import { CartProvider } from "./components/Bag/CartContext";
+import {WishlistProvider} from "./components/Wishlist/Context"
+import Footer from "./components/Footer/Footer";
+import Login from "./components/Authentication/Login";
+import SignUp from "./components/Authentication/Register";
+import Wishlist from "./components/Wishlist/Wishlist";
+// import Profile from './components/Account/Profile'
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <CartProvider>
+      <WishlistProvider>
       <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
+          <Route path="/" element={
               <>
                 <Header />
                 <Navbar />
                 <ImageSlider />
                 <Home />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/about"
-            element={
+          <Route path="/about" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <About />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/shop/men"
-            element={
+          <Route path="/shop/men" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <MenProducts />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/shop/women"
-            element={
+          <Route path="/shop/women" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <WomenProducts />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/blogs"
-            element={
+          <Route path="/blogs" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <Blogs />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/contact"
-            element={
+          <Route path="/contact" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <Contact />
+                <Footer/>
               </>
             }
           />
-          <Route
-            path="/cart"
-            element={
+          <Route path="/cart" element={
               <>
                 {/* <Header /> */}
                 <Navbar />
                 <Cart />
+                <Footer/>
               </>
             }
           />
+           <Route path="/login" element={<Login />} />
+           <Route path="/register" element={<SignUp />} />
+           <Route path="/wishlist" component={Wishlist} />
+           {/* <Route path="/profile" element={<Profile />} /> */}
+
         </Routes>
+        <ToastContainer />
       </Router>
+      </WishlistProvider>
     </CartProvider>
   );
 };

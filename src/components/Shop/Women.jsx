@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
-import "../../components/Products/Products";
+import { Link } from 'react-router-dom';
+import { useCart } from "../Bag/CartContext";
+import { handleAddToCart } from "../Utils/CartUtils";
+import { ShowProducts } from "../Utils/ProductsUtils";
+import { HiOutlineArrowSmRight } from "react-icons/hi";
+import ProductPopup from '../Products/ProductPop'
 import './Women.css'
+import {handleAddToWishlist} from '../Utils/WishlistUtils'
 
 const WomenProducts = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     let componentMounted = true;
@@ -26,22 +35,14 @@ const WomenProducts = () => {
     };
   }, []);
 
-  const ShowProducts = () => {
-    return (
-      <div className="products-grid">
-        {filter.map((product) => {
-          return (
-            <div className="card" key={product.id}>
-              <img src={product.image} alt={product.title} />
-              <div className="card-body">
-                <h5 className="card-title">{product.title.substring(0, 12)}</h5>
-                <p className="card-text">$ {product.price}</p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
+  const handleOpenPopup = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedProduct(null);
+    setIsModalOpen(false);
   };
 
   return (
@@ -52,7 +53,25 @@ const WomenProducts = () => {
           <hr className="divider" />
         </div>
       </div>
-      <div className="womLoad">{<ShowProducts />}</div>
+      <div className="womLoad">
+        <ShowProducts products={filter} 
+        handleOpenPopup={handleOpenPopup} 
+        handleAddToWishlist={handleAddToWishlist}
+        addToCart={addToCart} />
+        <ProductPopup
+          product={selectedProduct}
+          isOpen={isModalOpen}
+          onClose={handleClosePopup}
+          addToCart={(product) => handleAddToCart(product, addToCart)}
+        />
+      </div>
+      <div className="cart-link">
+        <Link to="/cart">
+          <button>
+            Go to Bag <HiOutlineArrowSmRight />
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

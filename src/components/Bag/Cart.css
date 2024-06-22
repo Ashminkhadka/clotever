@@ -85,10 +85,40 @@
     font-weight: 400;
 }
 
+.remove-btn{
+    /* position: absolute; */
+    top: 22.5rem;
+    right: 49rem;
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+    /* margin-bottom: 11rem; */
+    margin-left: 0rem;
+}
+
 .qty button {
     padding-left: 2rem;
     padding-right: 2rem;
     font-size: 22px;
+}
+
+.add-product-link {
+    padding: 0.4rem;
+    margin-left: 58.5rem;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 170px;
+}
+
+.add-product-link button{
+    font-weight: 400;
+    display: ruby;
+}
+
+.add-product-link button:hover{
+    background-color: beige;
 }
 
 .order-summary{
@@ -115,8 +145,13 @@ margin-left: 11rem;
     color: white;
     font-size: 20px;
     border: 0px solid;
+    border-radius: 4px;
     width: 100%;
-    background-color: rgb(48, 237, 57);
+    background-color: rgb(62, 125, 250);
+}
+
+.order-summary button:hover{
+    background-color: rgb(21, 52, 116);
 }
 
 @media (max-width: 768px) {

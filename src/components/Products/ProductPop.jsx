@@ -17,18 +17,18 @@ const ProductPop = ({ product, isOpen, onClose, addToCart }) => {
           <button className="close-button" onClick={onClose}>
             &times;
           </button>
-          <img src={product.image} alt={product.title} />
+          <img src={product.images} alt={product.title} />
           <h2>
             {product.title.substring(0,70)}
             <p>
               {product.description.substring(0,150)}
               <br />
-              <span className="rating">
+              {/* <span className="rating">
                 Rating: {product.rating && product.rating.rate}
                 <i>
                   <FaStar />
                 </i>
-              </span>
+              </span> */}
             </p>
             <span className="price">${product.price}</span>
             <div className="btns-pop">
@@ -36,7 +36,7 @@ const ProductPop = ({ product, isOpen, onClose, addToCart }) => {
                 className="buy-btn"
                 // onClick={() => handleOpenPopup(product)}
               >
-                Buy Now
+                Add to Wishlist
               </button>
               <button className="cart-btn" onClick={() => addToCart(product)}>
                 Add to Cart
@@ -50,4 +50,3 @@ const ProductPop = ({ product, isOpen, onClose, addToCart }) => {
 };
 
 export default ProductPop;
-

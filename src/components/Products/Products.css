@@ -31,7 +31,7 @@
 
 .sort-selection{
     padding-left: 0rem;
-    margin-left: 16.5rem;
+    margin-left: 10.4rem;
     height: 40px;
     text-align: center;
 }
@@ -75,6 +75,7 @@
 } */
 
 .card img {
+    padding-left: 1.7rem;
     width: 90%;
     height: 280px;
     /* object-fit: cover; */
@@ -133,6 +134,10 @@
 
 .cart-link button:hover{
     background-color: beige;
+}
+
+.slick-dots{
+    gap: 1rem;
 }
 
 /* Modal Styles */

@@ -3,11 +3,6 @@ import "./ImageSlider.css";
 import img1 from "../../assets/img1.jpg";
 import img4 from "../../assets/img4.jpg";
 import img3 from "../../assets/img3.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
 
 const images = [img1, img4, img3];
 
@@ -32,16 +27,21 @@ const ImageSlider = () => {
     return () => clearInterval(intervalId);
   }, [currentIndex]);
 
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <div className="slider">
-      <div className="arrow">
-        {/* <button className="left-arrow" onClick={prevSlide}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button> */}
-        <img src={images[currentIndex]} alt="slide" className="slide-image" />
-        {/* <button className="right-arrow" onClick={nextSlide}>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button> */}
+      <img src={images[currentIndex]} alt="slide" className="slide-image" />
+      <div className="dots">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentIndex ? "active" : ""}`}
+            onClick={() => handleDotClick(index)}
+          ></span>
+        ))}
       </div>
     </div>
   );

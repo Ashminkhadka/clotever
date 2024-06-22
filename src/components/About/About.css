@@ -31,14 +31,6 @@ h3{
     display: flex;
 }
 
-.aboutFooter{
-    padding-top: 12rem;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
-    left:0;
-
-}
 .aboutHead{
     display: flex;
 }
@@ -55,43 +47,7 @@ h3{
     width: 40%;
 }
 
-
-.footCont{
-    margin-top: 8rem;
-    padding: 20px;
-    background-color: black;
-    color: white;
-    display: flex;
-}
-.footCont li{
-    display: flex;
-}
-
-.aboutSecond{
-    padding-left: 8rem;
-}
-
-h2{
+.descImg h2{
     font-size: 20px;
     margin-bottom:1rem;
-}
-.aboutSecond{
-    padding-right: 8rem;
-    padding-bottom: 5px;
-}
-
-.aboutThird{
-    padding-right: 8rem;
-}
-
-.abFacebook{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.aboutMap {
-    flex: 1;
-    min-width: 300px;
-    margin-top: 20px;
-    width: 100%;
 }
