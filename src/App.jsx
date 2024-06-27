@@ -49,6 +49,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./components/Authentication/Login";
 import SignUp from "./components/Authentication/Register";
 import Wishlist from "./components/Wishlist/Wishlist";
+// import OrderDetail from "./components/OrderDetails/OrderDetail";
 // import Profile from './components/Account/Profile'
 import { ToastContainer } from "react-toastify";
 
@@ -124,7 +125,8 @@ const App = () => {
           />
            <Route path="/login" element={<Login />} />
            <Route path="/register" element={<SignUp />} />
-           <Route path="/wishlist" component={Wishlist} />
+           <Route path="/wishlist" component={<Wishlist/>} />
+           {/* <Route path="/order-details" component={<OrderDetail/>} /> */}
            {/* <Route path="/profile" element={<Profile />} /> */}
 
         </Routes>

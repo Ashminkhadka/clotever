@@ -243,14 +243,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import { auth } from "../Authentication/Firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import Modal from 'react-modal';
 import { toast } from "react-toastify";
 import { HiOutlineArrowSmLeft } from "react-icons/hi";
+import OrderDetail from "../OrderDetails/OrderDetail"
 import "./Cart.css";
+
+// Set the root element for react-modal
+Modal.setAppElement('#root');
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const { cart, addToCart, removeFromCart } = useCart();
   const [user, setUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const totalPrice = cart.reduce(
@@ -260,6 +266,7 @@ const Cart = () => {
 
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const shippingFee = 5;
+  const totalAmount = totalPrice + shippingFee;
 
   const incrementQuantity = (product) => {
     addToCart(product);
@@ -299,13 +306,18 @@ const Cart = () => {
 
   const handleCheckout = () => {
     if (user) {
-      navigate("/checkout");
+      // navigate("/order-details");
+      setIsModalOpen(true);
     } else {
       toast.error("Please login to proceed to checkout.", {
         position: "bottom-center",
       });
       navigate("/login");
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -372,7 +384,7 @@ const Cart = () => {
                 Shipping Fee: ${shippingFee.toFixed(2)}
               </p>
               <hr />
-              <p>Total Amount: ${(totalPrice + shippingFee).toFixed(2)}</p>
+              <p>Total Amount: ${totalAmount .toFixed(2)}</p>
               <button className="checkout-button" onClick={handleCheckout}>
                 Checkout ({totalQuantity})
               </button>
@@ -380,6 +392,17 @@ const Cart = () => {
           </>
         )}
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Order Detail"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <OrderDetail closeModal={closeModal}
+        cartItems={cartItems} 
+        totalAmount={totalAmount}  />
+      </Modal>
     </div>
   );
 };
