@@ -1,4 +1,5 @@
 # E-Commerce Website 
+### Fetching data from fake store api and using context api for cart and wishlist, modal for popup, React Toastify, EmailJS and Firebase  
 
 ## Home Page and Latest Product
 ![Screenshot 2024-06-10 165519](https://github.com/Ashminkhadka/clotever/assets/70682035/112ea060-a1fc-4a98-86d1-6c28d46656cc)
